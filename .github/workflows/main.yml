@@ -1,0 +1,16 @@
+name: Interactive SSH Kernel Build
+
+on:
+  workflow_dispatch:  # 核心：有了这一行，才会有手动运行的按钮
+
+jobs:
+  ssh-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup tmate session (SSH 实时交互)
+      uses: mxschmitt/action-tmate@v3
+      if: always()
