@@ -14,3 +14,7 @@ jobs:
     - name: Setup tmate session (SSH 实时交互)
       uses: mxschmitt/action-tmate@v3
       if: always()
+      with:
+        # 👇 核心：强制指定使用中国香港区域服务器，拒绝随机分配到欧美
+        limit-access-to-actor: true
+        tmate-server-host: hkg.tmate.io
